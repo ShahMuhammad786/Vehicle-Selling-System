@@ -231,13 +231,13 @@
                 <div class="col col-4">
                     <div class="input-group mb-3 col-6">
                         <span class="input-group-text" id="basic-addon1">Postal Code</span>
-                        <input type="text" id="postal" class="form-control" placeholder="NAN ANA" aria-label="Username" aria-describedby="basic-addon1">
+                        <input type="text" id="postal" class="form-control" maxlength="7" placeholder="NAN ANA" aria-label="Username" aria-describedby="basic-addon1">
                     </div>                    
                 </div>
                 <div class="col col-4">
                     <div class="input-group mb-3 col-6">
                         <span class="input-group-text" id="basic-addon1">Phone No</span>
-                        <input type="text" id="phone" class="form-control" placeholder="000-000-0000" aria-label="Username" aria-describedby="basic-addon1">
+                        <input type="text" id="phone" maxlength="12" class="form-control" placeholder="000-000-0000" aria-label="Username" aria-describedby="basic-addon1">
                     </div>                    
                 </div>
               </div>
@@ -294,17 +294,17 @@
                     <div class="row">
                         <div class="col-sm-6 mb-3">
                             <div class="card"  style="min-height: 265px;">
-                                <div class="card-body">
+                                <div class="card-body" style="background-color: lightgray;">
                                     <div class="row">
                                         <div class="col-sm-6 m-0">
-                                        <div class="card">
-                                            <div class="card-body p-2 m-0">
-                                                <div class="card-header bg-light" style="color:black; text-align: center;">
-                                                    User Information
-                                                </div>      
-                                                                                    
+                                            <div class="card">
+                                                <div class="card-body p-2 m-0">
+                                                    <div class="card-header bg-light" style="color:black; text-align: center;">
+                                                        User Information
+                                                    </div>      
+                                                                                        
+                                                </div>
                                             </div>
-                                        </div>
                                         </div>
                                         <div class="col-sm-6 m-0">
                                         <div class="card">
@@ -323,7 +323,7 @@
                     
                         <div class="col-sm-6 mb-3" >
                             <div class="card" style="min-height: 265px;">
-                                <div class="card-body">
+                                <div class="card-body" style="background-color: lightgray;">
                                     <div class="row">
                                         <div class="col-sm-6 m-0">
                                             <div class="card">
@@ -352,7 +352,7 @@
                         
                         <div class="col-sm-6 mb-3" >
                             <div class="card" style="min-height: 265px;">
-                                <div class="card-body">
+                                <div class="card-body" style="background-color: lightgray;">
                                     <div class="row">
                                         <div class="col-sm-6 m-0">
                                             <div class="card">
@@ -381,7 +381,7 @@
 
                         <div class="col-sm-6 mb-3" >
                             <div class="card" style="min-height: 265px;">
-                                <div class="card-body">
+                                <div class="card-body" style="background-color: lightgray;">
                                     <div class="row">
                                         <div class="col-sm-6 m-0">
                                             <div class="card">
@@ -434,6 +434,82 @@
                 $('#seeMod').modal('show');
             });
 
+            /*Saving the records*/
+            $('#addSave').click(function(){
+                let fname = $('#fname').val();
+                let lname = $('#lname').val();
+                let adress = $('#address').val();
+                let city = $('#city').val();
+                let province = $("#province :selected").text();
+                let postal = $('#postal').val();
+                let phone = $('#phone').val();
+                let email = $('#email').val();
+                let model = $('#model').val();
+                let make = $('#make').val();
+                let year = $('#year').val();
+
+                /*Validation*/
+
+                if(fname!="" && lname!="" && adress!="" && city!="" && province!="Select" 
+                && postal!="" && phone!="" && email!="" && model!="" && make!="" && year!=""
+                ){
+                    /*Validation for postal code*/
+                    if((postal.charCodeAt(0)>=48 && postal.charCodeAt(0)<=57) &&
+                    (postal.charCodeAt(2)>=48 && postal.charCodeAt(2)<=57) &&
+                    (postal.charCodeAt(5)>=48 && postal.charCodeAt(5)<=57) &&
+                    (postal.charCodeAt(1)>=65 && postal.charCodeAt(1)<=90) ||
+                    (postal.charCodeAt(1)>=97 && postal.charCodeAt(1)<=122) &&
+                    (postal.charCodeAt(4)>=65 && postal.charCodeAt(4)<=90) ||
+                    (postal.charCodeAt(4)>=97 && postal.charCodeAt(4)<=122) &&
+                    (postal.charCodeAt(6)>=65 && postal.charCodeAt(6)<=90) ||
+                    (postal.charCodeAt(6)>=97 && postal.charCodeAt(6)<=122) &&
+                    (postal.charCodeAt(3)==32)){
+                        
+                        if((phone.charCodeAt(0)>=48 && phone.charCodeAt(0)<=57) &&
+                        (phone.charCodeAt(1)>=48 && phone.charCodeAt(1)<=57) &&
+                        (phone.charCodeAt(2)>=48 && phone.charCodeAt(2)<=57) &&
+                        (phone.charCodeAt(4)>=48 && phone.charCodeAt(4)<=57) &&
+                        (phone.charCodeAt(5)>=48 && phone.charCodeAt(5)<=57) &&
+                        (phone.charCodeAt(6)>=48 && phone.charCodeAt(6)<=57) &&
+                        (phone.charCodeAt(8)>=48 && phone.charCodeAt(8)<=57) &&
+                        (phone.charCodeAt(9)>=48 && phone.charCodeAt(9)<=57) &&
+                        (phone.charCodeAt(10)>=48 && phone.charCodeAt(10)<=57) &&
+                        (phone.charCodeAt(11)>=48 && phone.charCodeAt(11)<=57) &&
+                        (phone.charCodeAt(3)==45 && phone.charCodeAt(7)==45)){
+
+                            let jdp = "http://www.jdpower.com/cars/"+year+"/"+make+"/"+model
+                            let vehicle = {
+                                Fname:fname,
+                                Lname:lname,
+                                Address:adress,
+                                City:city,
+                                Province:province,
+                                Postal:postal,
+                                Phone:phone,
+                                Email:email,
+                                Make:make,
+                                Model:model,
+                                Year:year,
+                                JDP: jdp,
+                            }
+
+                            localStorage.setItem(JSON.stringify(vehicle))
+                            console.log(localStorage.getItem("v", JSON.parse(phone)))
+                        }else{
+                            alert("Phone Number is in the wrong format!")
+                        }
+
+                    }else{
+                        alert("Postal Code is in the wrong format!")
+                    }
+
+                }else{
+                    alert("Please Fill all the  Fields!")
+                }
+
+
+
+            })
 
 
 
