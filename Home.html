@@ -93,7 +93,7 @@
                   Actions
                 </div>
                 <div class="card-body" style="background-color: darkgrey;">
-                    <button id="add" class="btn btn-success p-2 m-5 mb-1" style="border-radius: 60px; width: 80px; height: 80px;"><i style="font-size: 30px;" class="bi bi-plus-circle"></i></button>            
+                    <button id="add" class="btn btn-primary p-2 m-5 mb-1" style="border-radius: 60px; width: 80px; height: 80px;"><i style="font-size: 30px;" class="bi bi-plus-circle"></i></button>            
                     <button id="see" class="btn btn-dark p-2 m-5 mt-1" style="border-radius: 60px; width: 80px; height: 80px;"><i  style="font-size: 30px;" class="bi bi-eye"></i></button>
                 </div>
             </div>            
@@ -170,21 +170,113 @@
 
     <!-- Modals -->
     <div class="modal" tabindex="-1" id="addMod">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header bg-dark">
               <h5 class="modal-title" style="color: white;">Add a new car to the list</h5>
               <button type="button" style="background-color: white;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body">                
               <h6>Seller Information</h6> <br>
-                
+              <div class="row">
+                <div class="col col-6">
+                    <div class="input-group mb-3 col-6">
+                        <span class="input-group-text" id="basic-addon1">First Name</span>
+                        <input type="text" id="fname" class="form-control" placeholder="First Name..." aria-label="Username" aria-describedby="basic-addon1">
+                    </div>                    
+                </div>
+                <div class="col col-6">
+                    <div class="input-group mb-3 col-6">
+                        <span class="input-group-text" id="basic-addon1">Last Name</span>
+                        <input type="text" id="lname" class="form-control" placeholder="Last Name" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>                    
+                </div>
+              </div>
 
+              <div class="row">
+                <div class="col col-6">
+                    <div class="input-group mb-3 col-6">
+                        <span class="input-group-text" id="basic-addon1">Adress</span>
+                        <input type="text" id="address" class="form-control" placeholder="Adress..." aria-label="Username" aria-describedby="basic-addon1">
+                    </div>                    
+                </div>
+                <div class="col col-6">
+                    <div class="input-group mb-3 col-6">
+                        <span class="input-group-text" id="basic-addon1">City</span>
+                        <input type="text" id="city" class="form-control" placeholder="City..." aria-label="Username" aria-describedby="basic-addon1">
+                    </div>                    
+                </div>
+              </div>
 
+              <div class="row">
+                <div class="col col-4">
+                    <div class="input-group mb-3 col-6">
+                        <span class="input-group-text" id="basic-addon1">Province</span>
+                        <select class="form-select" id="province" aria-label="Default select example">
+                            <option selected>Select</option>
+                            <option value="1">Alberta</option>
+                            <option value="2">British</option>
+                            <option value="3">Columbia</option>
+                            <option value="3">Manitoba</option>
+                            <option value="3">New Brunswick</option>
+                            <option value="3">Newfoundland and Labrador</option>
+                            <option value="3">Nova Scotia</option>
+                            <option value="3">Ontario</option>
+                            <option value="3">Prince Edward Island</option>
+                            <option value="3">Quebec</option>
+                            <option value="3">Saskatchewan</option>                          
+                        </select>
+                    </div>                    
+                </div>
+                <div class="col col-4">
+                    <div class="input-group mb-3 col-6">
+                        <span class="input-group-text" id="basic-addon1">Postal Code</span>
+                        <input type="text" id="postal" class="form-control" placeholder="NAN ANA" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>                    
+                </div>
+                <div class="col col-4">
+                    <div class="input-group mb-3 col-6">
+                        <span class="input-group-text" id="basic-addon1">Phone No</span>
+                        <input type="text" id="phone" class="form-control" placeholder="000-000-0000" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>                    
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                    <div class="input-group mb-3 col-6">
+                        <span class="input-group-text" id="basic-addon1">Email</span>
+                        <input type="text" id="email" class="form-control" placeholder="Email..." aria-label="Username" aria-describedby="basic-addon1">
+                    </div>                    
+                </div>                
+              </div>
+              <br>
+              <h6>Vehicle Specifications</h6> <br>
+
+              <div class="row">
+                <div class="col col-4">
+                    <div class="input-group mb-3 col-6">
+                        <span class="input-group-text" id="basic-addon1">Make</span>
+                        <input type="text" id="make" class="form-control" placeholder="Make.." aria-label="Username" aria-describedby="basic-addon1">
+                    </div>                    
+                </div>
+                <div class="col col-4">
+                    <div class="input-group mb-3 col-6">
+                        <span class="input-group-text" id="basic-addon1">Model</span>
+                        <input type="text" id="model" class="form-control" placeholder="Model..." aria-label="Username" aria-describedby="basic-addon1">
+                    </div>                    
+                </div>
+                <div class="col col-4">
+                    <div class="input-group mb-3 col-6">
+                        <span class="input-group-text" id="basic-addon1">Year</span>
+                        <input type="text" id="year" class="form-control" placeholder="Year..." aria-label="Username" aria-describedby="basic-addon1">
+                    </div>                    
+                </div>
+              </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" id="addCancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" id="addSave" class="btn btn-success">Save changes</button>
             </div>
           </div>
         </div>
@@ -193,18 +285,136 @@
     <!-- Vehicle list modal -->
     <div class="modal " tabindex="-1" id="seeMod">
         <div class="modal-dialog modal-fullscreen-xxl-down">
-          <div class="modal-content">
-            <div class="modal-header bg-dark">
-              <h5 class="modal-title" style="color: white;" >This is the list of all the Cars that are added for to the store for selling so far</h5>
-              <button type="button" style="background-color: white;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-content">
+                <div class="modal-header bg-dark">
+                    <h5 class="modal-title" style="color: white;" >This is the list of all the Cars that are added for to the store for selling so far</h5>
+                    <button type="button" style="background-color: white;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6 mb-3">
+                            <div class="card"  style="min-height: 265px;">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-6 m-0">
+                                        <div class="card">
+                                            <div class="card-body p-2 m-0">
+                                                <div class="card-header bg-light" style="color:black; text-align: center;">
+                                                    User Information
+                                                </div>      
+                                                                                    
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-sm-6 m-0">
+                                        <div class="card">
+                                            <div class="card-body p-2 m-0">
+                                                <div class="card-header bg-light" style="color: black; text-align: center;">
+                                                    Car Specifications
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-sm-6 mb-3" >
+                            <div class="card" style="min-height: 265px;">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-6 m-0">
+                                            <div class="card">
+                                                <div class="card-body p-2 m-0">
+                                                    <div class="card-header bg-light" style="color:black; text-align: center;">
+                                                        User Information
+                                                    </div>      
+                                                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 m-0">
+                                            <div class="card">
+                                                <div class="card-body p-2 m-0">
+                                                    <div class="card-header bg-light" style="color: black; text-align: center;">
+                                                        Car Specifications
+                                                    </div>
+                                                
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        
+                        <div class="col-sm-6 mb-3" >
+                            <div class="card" style="min-height: 265px;">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-6 m-0">
+                                            <div class="card">
+                                                <div class="card-body p-2 m-0">
+                                                    <div class="card-header bg-light" style="color:black; text-align: center;">
+                                                        User Information
+                                                    </div>      
+                                                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 m-0">
+                                            <div class="card">
+                                                <div class="card-body p-2 m-0">
+                                                    <div class="card-header bg-light" style="color: black; text-align: center;">
+                                                        Car Specifications
+                                                    </div>
+                                                
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+
+                        <div class="col-sm-6 mb-3" >
+                            <div class="card" style="min-height: 265px;">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-6 m-0">
+                                            <div class="card">
+                                                <div class="card-body p-2 m-0">
+                                                    <div class="card-header bg-light" style="color:black; text-align: center;">
+                                                        User Information
+                                                    </div>      
+                                                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 m-0">
+                                            <div class="card">
+                                                <div class="card-body p-2 m-0">
+                                                    <div class="card-header bg-light" style="color: black; text-align: center;">
+                                                        Car Specifications
+                                                    </div>
+                                                
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close the list</button>
+                </div>
             </div>
-            <div class="modal-body">
-              
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close the list</button>
-            </div>
-          </div>
         </div>
     </div>
 
