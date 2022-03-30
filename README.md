@@ -3,3 +3,5 @@ This is the repository for the project called Vehicla Selling System wherer the 
 
 
 There are some screenshots of the application.
+
+This project includes the HTML:5, CSS, Bootstrap, JavaScript and JQuery.
