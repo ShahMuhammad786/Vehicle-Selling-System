@@ -110,22 +110,26 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-6 m-0">
-                                      <div class="card">
-                                        <div class="card-body p-2 m-0">
+                                      <div class="card border-0">
+                                        <div class="card-body m-0">
                                             <div class="card-header bg-light" style="color:black; text-align: center;">
                                                 User Information
-                                            </div>      
-                                                                                  
+                                            </div> 
+                                            <div id="ui1">
+
+                                            </div>                                                                                       
                                         </div>
                                       </div>
                                     </div>
                                     <div class="col-sm-6 m-0">
-                                      <div class="card">
-                                        <div class="card-body p-2 m-0">
+                                      <div class="card border-0">
+                                        <div class="card-body m-0">
                                             <div class="card-header bg-light" style="color: black; text-align: center;">
                                                 Car Specifications
                                             </div>
-                                            
+                                            <div id="ve1">
+
+                                            </div>
                                         </div>
                                       </div>
                                     </div>
@@ -138,22 +142,26 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-6 m-0">
-                                      <div class="card">
-                                        <div class="card-body p-2 m-0">
+                                      <div class="card border-0">
+                                        <div class="card-body m-0">
                                             <div class="card-header bg-light" style="color:black; text-align: center;">
                                                 User Information
                                             </div>      
-                                                                                  
+                                            <div id="ui2">
+
+                                            </div>                                 
                                         </div>
                                       </div>
                                     </div>
                                     <div class="col-sm-6 m-0">
-                                      <div class="card">
-                                        <div class="card-body p-2 m-0">
+                                      <div class="card border-0">
+                                        <div class="card-body m-0">
                                             <div class="card-header bg-light" style="color: black; text-align: center;">
                                                 Car Specifications
                                             </div>
-                                            
+                                            <div id="ve2">
+
+                                            </div>
                                         </div>
                                       </div>
                                     </div>
@@ -426,6 +434,8 @@
     <script>
         $(document).ready(function () {
 
+            console.log(localStorage.length)
+
             $("#add").click(function(){
                 $('#addMod').modal('show');
             });
@@ -493,8 +503,10 @@
                                 JDP: jdp,
                             }
 
-                            localStorage.setItem(JSON.stringify(vehicle))
-                            console.log(localStorage.getItem("v", JSON.parse(phone)))
+                            let x = localStorage.length;
+                            localStorage.setItem("v"+x, JSON.stringify(vehicle))
+                            alert("Vehical Added to the list successfully")
+
                         }else{
                             alert("Phone Number is in the wrong format!")
                         }
@@ -506,15 +518,64 @@
                 }else{
                     alert("Please Fill all the  Fields!")
                 }
-
-
-
             })
 
+           
+
+            /*Retrieve from local storage*/
+            function getRecentVehicles(){
+                let rec = localStorage.length
+                let count=0;                
+                for(let i=rec-1 ; i>=0 ; i--){
+                   if(count>1){
+                        break;    
+                   }else if(count==0){
+                        let obj = JSON.parse(localStorage.getItem("v"+i))
+
+                        let str1 = "<b>First Name:</b> "+obj.Fname +"<br>"+
+                        "<b>Last Name: </b>"+obj.Lname + "<br>" + "<b>Address: </b>"+ obj.Address+"<br>"+
+                        "<b>City: </b>"+obj.City+"<br>"+ "<b>Province: </b>"+obj.Province +"<br>"+ 
+                        "<b>Postal Code: </b>"+ obj.Postal+"<br>"+ "<b>Phone #: </b>"+obj.Phone+"<br>"+
+                        "<b>Email: </b>"+obj.Email;
+
+                        $('#ui1').html(str1);
+                        
+                        let veh1 = "<b>Make: </b>"+obj.Make+"<br>"+"<b>Model: </b>"+obj.Model+"<br>"+
+                        "<b>Year: </b>"+obj.Year + "<br>" + "<b>JD Power and Associates page: </b><br>"+
+                        "<a href=\""+obj.JDP+"\">"+obj.JDP+"</a>";
+
+                        $('#ve1').html(veh1);
 
 
+                    }
+                    else if(count==1){
+                        let obj2 = JSON.parse(localStorage.getItem("v"+i))
 
-        });
+                        let str2 = "<b>First Name:</b> "+obj2.Fname +"<br>"+
+                        "<b>Last Name: </b>"+obj2.Lname + "<br>" + "<b>Address: </b>"+ obj2.Address+"<br>"+
+                        "<b>City: </b>"+obj2.City+"<br>"+ "<b>Province: </b>"+obj2.Province +"<br>"+ 
+                        "<b>Postal Code: </b>"+ obj2.Postal+"<br>"+ "<b>Phone #: </b>"+obj2.Phone+"<br>"+
+                        "<b>Email: </b>"+obj2.Email;
+
+                        $('#ui2').html(str2);
+
+                        let veh2 = "<b>Make: </b>"+obj2.Make+"<br>"+"<b>Model: </b>"+obj2.Model+"<br>"+
+                        "<b>Year: </b>"+obj2.Year + "<br>" + "<b>JD Power and Associates page: </b><br>"+
+                        "<a href=\""+obj2.JDP+"\">"+obj2.JDP+"</a>";
+
+                        $('#ve2').html(veh2);
+
+                    } 
+                   count++;
+                }
+            }
+        
+            getRecentVehicles();
+            // console.log(localStorage.getItem("v0"))
+        
+
+
+        })
     </script>
 </body>
 </html>
